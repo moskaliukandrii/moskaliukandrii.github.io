@@ -6,12 +6,12 @@
   <title>Андрій Москалюк — маркетолог</title>
   <meta name="description" content="Сайт-візитівка Андрія Москалюка: освіта, навички, курси, досвід і контакти.">
 
-  <!-- GA4 (замініть G-XXXXXXX на ваш Measurement ID) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X1FQH1RM2E"></script>
+  <!-- GA4 (замініть G-Y3RD7B6159 на ваш Measurement ID) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y3RD7B6159"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date()); gtag('config','G-X1FQH1RM2E');
+    gtag('js', new Date()); gtag('config','G-Y3RD7B6159');
   </script>
 
   <style>
@@ -102,7 +102,6 @@
 
   <main class="container">
     <div class="layout">
-      <!-- Sidebar -->
       <aside class="sidebar" aria-label="Особистий блок">
         <h1>АНДРІЙ МОСКАЛЮК</h1>
         <p class="role">MARKETOLOG</p>
@@ -136,11 +135,10 @@
         </div>
       </aside>
 
-      <!-- Main column -->
       <section class="maincol" style="display:grid;gap:16px">
         <section id="about" class="card">
           <h2>ПРО МЕНЕ</h2>
-          <p>Маркетинг — це не просто моя спеціальність, це мій стиль життя. У 5 років я не просто ловив жаб, а вмів їх продавати. Трохи згодом освоїв перепродаж і рекламу електронних сигарет на OLX. Сьогодні я студент 4-го курсу маркетингу, і прагну розвиватися в галузі, застосовуючи свої навички та креативний підхід у реальних проєктах. Вірю, що хороша реклама може продати будь-що, головне — знайти правильну аудиторію. Я прагну постійно вдосконалювати свої знання та навички, вивчати нові тенденції й стратегії, щоб приносити максимальну користь у сфері маркетингу.</p>
+          <p>Маркетинг — це не просто моя спеціальність, це мій стиль життя. ...</p>
         </section>
 
         <section id="education" class="card">
@@ -152,12 +150,12 @@
         <section id="courses" class="card">
           <h2>КУРСИ</h2>
           <h3>Digital Marketing Intensive — SKELAR (2025)</h3>
-          <p><a href="https://www.canva.com/design/DAGnQCtdKQA/0n8QNr_ltyrZxzKRvu-EDQ/view?utm_content=DAGnQCtdKQA&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=he29371b83b" target="_blank" rel="noopener">переглянути сертифікат</a></p>
+          <p><a href="#" target="_blank" rel="noopener">переглянути сертифікат</a></p>
         </section>
 
         <section id="experience" class="card">
           <h2>ДОСВІД</h2>
-          <p>На практиці від університету я отримав досвід роботи із застосунком Trello для управління завданнями та комунікації з клієнтами. Створював дошки для проєктів, де зберігалася інформація про клієнтів і їхні потреби. Відгуки збиралися через Google Forms та інтегрували в Trello. Також освоїв автоматизацію Butler, що спростило контроль за задачами. Впровадження автоматизації Butler скоротило час на рутинні завдання на 15%, дозволивши зосередитися на стратегічних аспектах. Цей досвід підвищив мою продуктивність та покращив навички організації та роботи з клієнтами.</p>
+          <p>Опис досвіду роботи ...</p>
         </section>
 
         <section id="contact" class="card">
@@ -173,17 +171,16 @@
 
   <footer class="footer">
     <div class="container">
-      <div class="small">© 2025 Андрій Москалюк</div>
+      <div class="small">© {datetime.date.today().year} Андрій Москалюк</div>
     </div>
   </footer>
 
   <script>
-  // анімація барів навичок + активна секція
+  // анімація барів і активна секція
   document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('[data-skill]').forEach(s => requestAnimationFrame(()=> s.style.width = s.getAttribute('data-skill')+'%'));
     const sections = document.querySelectorAll('main [id]');
     const navLinks = document.querySelectorAll('.nav a');
-    const map = {}; navLinks.forEach(a => map[a.getAttribute('href').replace('#','')] = a);
     function setActive(id){
       sections.forEach(s => s.classList.toggle('active', s.id===id));
       navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href')==='#'+id));
@@ -195,17 +192,16 @@
     sections.forEach(sec=>io.observe(sec));
   });
 
-  // відслідковування кліків по контактам (готово для GA4)
+  // події контактів
   document.addEventListener('click',(e)=>{
     const a=e.target.closest('a'); if(!a||typeof gtag!=='function') return;
     const href=a.getAttribute('href')||'';
     if(href.startsWith('mailto:')) gtag('event','email_click',{link_url:href});
     if(href.startsWith('tel:'))    gtag('event','tel_click',  {link_url:href});
-    if(href.includes('linkedin.com')) gtag('event','linkedin_click', {link_url:href});
+    if(href.includes('linkedin.com')) gtag('event','linkedin_click',{link_url:href});
   });
   </script>
 
-  <!-- Schema.org -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
